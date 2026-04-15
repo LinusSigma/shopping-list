@@ -10,10 +10,56 @@
     <meta name="apple-mobile-web-app-title" content="ShopList" />
     <meta name="description" content="A simple PWA shopping list" />
     <title>Shopping List</title>
-    <script type="module" crossorigin src="/shopping-list/assets/index-ycDxNJmm.js"></script>
+    <script type="module" crossorigin src="/shopping-list/assets/index-2Yf-le_s.js"></script>
     <link rel="stylesheet" crossorigin href="/shopping-list/assets/index-CyOV4Niq.css">
   <link rel="manifest" href="/shopping-list/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/shopping-list/registerSW.js"></script></head>
   <body>
     <div id="root"></div>
+    <div id="splash">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1" fill="#a78bfa" stroke="none"/>
+        <circle cx="20" cy="21" r="1" fill="#a78bfa" stroke="none"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <p>Loading...</p>
+      <div class="splash-spinner"></div>
+    </div>
+    <style>
+      #splash {
+        position: fixed;
+        inset: 0;
+        background: #16162a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        z-index: 9999;
+        transition: opacity 0.35s ease;
+      }
+      #splash.splash-hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #splash p {
+        color: #d4bbff;
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: 0.04em;
+      }
+      .splash-spinner {
+        width: 32px;
+        height: 32px;
+        border: 3px solid #3a3a58;
+        border-top-color: #a78bfa;
+        border-radius: 50%;
+        animation: splash-spin 0.8s linear infinite;
+      }
+      @keyframes splash-spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </body>
 </html>
