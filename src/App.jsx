@@ -35,6 +35,14 @@ function App() {
   const [inputFocused, setInputFocused] = useState(false)
   const inputRef = useRef(null)
 
+  useEffect(() => {
+    const splash = document.getElementById('splash')
+    if (splash) {
+      splash.classList.add('splash-hidden')
+      setTimeout(() => splash.remove(), 400)
+    }
+  }, [])
+
   const suggestions = (() => {
     if (!inputValue.trim()) return []
     const activeNames = new Set(items.map(i => i.name.toLowerCase()))
